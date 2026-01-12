@@ -48,7 +48,7 @@ With these considerations, we propose a two-stage training framework.
 (b) After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
 
 <div align="center">
-<img src="figs/fid10k_plot.png" height="300px"/>
+<img src="fid10k_plot.png" height="300px"/>
 </div>
 
 VAE-based alignment accelerates SiT training, while leveraging this model for self-transcendence leads to further improvements.

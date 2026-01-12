@@ -60,7 +60,7 @@ If our code helps your research or work, please consider citing our paper.
 The following are BibTeX references:
 
 ```
-@article{sun2025self-transcendence,
+@article{sun2026self-transcendence,
   title={Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
   author={Sun, Lingchen and Wu, Rongyuan and Zhang, Zhengqiang and Li, Ruibin and Sun, Yujing and Liu, Shuaizheng and Zhang, Lei},
   journal={arXiv preprint arXiv: },
@@ -82,6 +82,5 @@ If you have any questions, please contact: ling-chen.sun@connect.polyu.hk
 <details>
 <summary>statistics</summary>
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=csslc/PiSA-SR)
-
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=csslc/Self-Transcendence)
 </details>

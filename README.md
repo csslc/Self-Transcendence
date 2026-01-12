@@ -2,7 +2,7 @@
 <h2>Beyond External Guidance: <br>Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training</h2>
 
 <a href=''><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
-<a href='https://yjsunnn.github.io/Self-Transcendence-project/'><img src='https://img.shields.io/badge/Project-Page-Blue'></a>
+<a href=''><img src='https://img.shields.io/badge/Project-Page-Blue'></a>
 
 
 

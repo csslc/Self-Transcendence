@@ -19,7 +19,10 @@
 ![Self-Transcendence](figs/vis_com_256.png)
 
 ## 🧡ྀི Summary
-We answer this question: ***Can internal features be used as effective semantic guidance signals to improve the training of DiT models?*** and introduce *Self-Transcendence*, a simple yet effective self-guided training strategy achieving REPA-level performance without any external feature supervision. Our proposed approach produces more discriminative and semantically richer features than pre-trained DINO used in [REPA](https://github.com/sihyun-yu/REPA). Our method significantly improves training efficiency and generation quality, *acheiving FID=1.25 at just 400 epochs*.
+Both shallower and deeper layers gradually learn more discriminative patterns over time, but the shallower layer progresses very slowly. This indicates that the slow convergence of DiT is mainly due to the difficulty in learning clean and semantically rich features in shallow layers.
+
+We answer this question: ***Can internal features be used as effective semantic guidance signals to guide the shallow layers' training?*** and introduce *Self-Transcendence*, a simple yet effective self-guided training strategy achieving REPA-level performance without any external feature supervision. Our proposed approach produces more discriminative and semantically richer features than pre-trained DINO used in [REPA](https://github.com/sihyun-yu/REPA). Our method significantly improves training efficiency and generation quality, *acheiving FID=1.25 at just 400 epochs*.
+
 
 ![Self-Transcendence](figs/intro.png)
 
@@ -34,21 +37,21 @@ We answer this question: ***Can internal features be used as effective semantic 
 ## 🌟 Overview framework
 We find that the most effective guiding features should meet **two criteria**:  
 
-(1) *they should have a clean structure, in the sense that they can effectively help shallow blocks distinguish noise from signal*.
+(1) *they should have a **clean structure**, in the sense that they can effectively help shallow blocks distinguish noise from signal*.
 
-(2) *they should be semantically discriminative, making it easier for shallow layers to learn effective representations*.
+(2) *they should be **semantically discriminative**, making it easier for shallow layers to learn effective representations*.
 
 With these considerations, we propose a two-stage training framework.
 
 <div align="center">
-<img src="figs/framework.png" height="540px"/>
+<img src="figs/framework.png" height="560px"/>
 </div>
 (a) Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers. 
 
 (b) After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
 
 <div align="center">
-<img src="fid10k_plot.png" height="300px"/>
+<img src="figs/fid_plot.png" height="320px"/>
 </div>
 
 VAE-based alignment accelerates SiT training, while leveraging this model for self-transcendence leads to further improvements.

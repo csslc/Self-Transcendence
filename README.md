@@ -32,8 +32,16 @@ We answer this question: ***Can internal features be used as effective semantic 
 
 
 ## 🌟 Overview framework
+We find that the most effective guiding features should meet **two criteria**:  
+
+(1) *they should have a clean structure, in the sense that they can effectively help shallow blocks distinguish noise from signal*.
+
+(2) *they should be semantically discriminative, making it easier for shallow layers to learn effective representations*.
+
+With these considerations, we propose a two-stage training framework.
+
 <div align="center">
-<img src="figs/framework.png" height="480px"/>
+<img src="figs/framework.png" height="500px"/>
 </div>
 (a) Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers. 
 
@@ -44,3 +52,36 @@ We answer this question: ***Can internal features be used as effective semantic 
 </div>
 
 VAE-based alignment accelerates SiT training, while leveraging this model for self-transcendence leads to further improvements.
+
+
+### Citations
+
+If our code helps your research or work, please consider citing our paper.
+The following are BibTeX references:
+
+```
+@article{sun2025self-transcendence,
+  title={Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
+  author={Sun, Lingchen and Wu, Rongyuan and Zhang, Zhengqiang and Li, Ruibin and Sun, Yujing and Liu, Shuaizheng and Zhang, Lei},
+  journal={arXiv preprint arXiv: },
+  year={2026}
+}
+```
+
+
+### License
+This project is released under the [Apache 2.0 license](LICENSE).
+
+### Acknowledgement
+This project is based on [REPA](https://github.com/sihyun-yu/REPA). Thanks for the awesome work. 
+
+### Contact
+If you have any questions, please contact: ling-chen.sun@connect.polyu.hk
+
+
+<details>
+<summary>statistics</summary>
+
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=csslc/PiSA-SR)
+
+</details>

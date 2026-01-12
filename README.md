@@ -19,7 +19,7 @@
 ![Self-Transcendence](figs/vis_com_256.png)
 
 ## 🧡ྀི Summary
-We answer this question: ***Can internal features be used as effective semantic guidance signals to improve the training of DiT models?*** and introduce *Self-Transcendence*, a simple yet effective self-guided training strategy achieving REPA-level performance without any external feature supervision. Our proposed approach produces more discriminative and semantically richer features, as pre-trained DINO used in [REPA](https://github.com/sihyun-yu/REPA). Our method significantly improves training efficiency and generation quality, *acheiving FID=1.25 at just 400 epochs*.
+We answer this question: ***Can internal features be used as effective semantic guidance signals to improve the training of DiT models?*** and introduce *Self-Transcendence*, a simple yet effective self-guided training strategy achieving REPA-level performance without any external feature supervision. Our proposed approach produces more discriminative and semantically richer features than pre-trained DINO used in [REPA](https://github.com/sihyun-yu/REPA). Our method significantly improves training efficiency and generation quality, *acheiving FID=1.25 at just 400 epochs*.
 
 ![Self-Transcendence](figs/intro.png)
 
@@ -31,7 +31,16 @@ We answer this question: ***Can internal features be used as effective semantic 
 
 
 
-## 🌟 Overview
+## 🌟 Overview framework
 <div align="center">
 <img src="figs/framework.png" height="480px"/>
 </div>
+(a) Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers. 
+
+(b) After a certain number of iterations, the model has learned more meaningful representations. We then freeze this model and use its representation as a fixed teacher. To enhance the semantic expression in the features, we build a self-guided representation that better aligns with the target conditions.
+
+<div align="center">
+<img src="figs/fid10k_plot.png" height="300px"/>
+</div>
+
+VAE-based alignment accelerates SiT training, while leveraging this model for self-transcendence leads to further improvements.

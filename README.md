@@ -63,7 +63,7 @@ If our code helps your research or work, please consider citing our paper.
 The following are BibTeX references:
 
 ```
-@article{sun2026self-transcendence,
+@article{sun2026beyond,
   title={Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
   author={Sun, Lingchen and Wu, Rongyuan and Zhang, Zhengqiang and Li, Ruibin and Sun, Yujing and Liu, Shuaizheng and Zhang, Lei},
   journal={arXiv preprint arXiv: },

@@ -68,7 +68,7 @@ The following are BibTeX references:
 @article{sun2026beyond,
   title={Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
   author={Sun, Lingchen and Wu, Rongyuan and Zhang, Zhengqiang and Li, Ruibin and Sun, Yujing and Liu, Shuaizheng and Zhang, Lei},
-  journal={arXiv preprint arXiv: },
+  journal={arXiv preprint arXiv: 2601.07773},
   year={2026}
 }
 ```

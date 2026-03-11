@@ -1,5 +1,5 @@
 <div align="center">
-<h2>Self-transcendence:: <br>  Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?</h2>
+<h2>Self-transcendence: <br>  Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?</h2>
 
 
 <a href='https://arxiv.org/pdf/2601.07773'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>

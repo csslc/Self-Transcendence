@@ -1,7 +1,7 @@
 
-cd /home/notebook/data/group/slc/self-transcedence
+cd .../self-transcedence
 
-accelerate launch --main_process_port=29508 train_selftrans.py \
+accelerate launch train_selftrans.py \
   --report-to="wandb" \
   --allow-tf32 \
   --mixed-precision="fp16" \

@@ -16,5 +16,5 @@ accelerate launch train_vaeloss.py \
   --output-dir="exps/vaeloss" \
   --t-range 0.4 0.7 \
   --resolution 256 \
-  --exp-name="sit-b-256" \
+  --exp-name="sit-b" \
   --data-dir=".../data"

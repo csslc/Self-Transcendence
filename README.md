@@ -52,7 +52,7 @@ We find that the most effective guiding features should meet **two criteria**:
 With these considerations, we propose a two-stage framework.
 
 <div align="center">
-<img src="figs/framework.png" height="250px"/>
+<img src="figs/framework.png" height="320px"/>
 </div>
 (a) Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers. 
 

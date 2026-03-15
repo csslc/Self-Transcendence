@@ -1,10 +1,10 @@
 
-cd /home/notebook/data/group/slc/self-transcedence
+cd .../self-transcedence
 
 torchrun --nnodes=1 --nproc_per_node=8 --master-port=29510 generate.py \
   --model SiT-XL/2 \
-  --ckpt /home/notebook/data/group/slc/self-transcedence/pretrained_models/sit_xl/2000000.pt \
-  --sample-dir test_results/200000guided_XL_2000k \
+  --ckpt pretrained_models/self-trans/sit_xl/2000000.pt \
+  --sample-dir test_results/self-trans/sit-xl \
   --num-fid-samples 50000 \
   --path-type=linear \
   --encoder-depth=8 \

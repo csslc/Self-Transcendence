@@ -13,7 +13,7 @@ For a simple single-GPU/CPU sampling script, see sample.py.
 """
 import torch
 import torch.distributed as dist
-from models.mmdit import MMDiT
+from models.mmdit_vaeloss import MMDiT
 from diffusers.models import AutoencoderKL
 from tqdm import tqdm
 import os
@@ -50,17 +50,14 @@ def create_npz_from_sample_folder(sample_dir, num=50_000):
 
 
 def _to_str(x):
-    # 尽量兼容：list/tuple/bytes/tensor/普通str
     if isinstance(x, str):
         return x
     if isinstance(x, bytes):
         return x.decode("utf-8", errors="replace")
-    # torch tensor (常见于 tokenizer 输出的情况，但你这里多半是str)
     try:
         import torch
         if torch.is_tensor(x):
             x = x.detach().cpu()
-            # 1元素tensor
             if x.numel() == 1:
                 return str(x.item())
             return str(x.tolist())
@@ -85,7 +82,6 @@ def main(args):
     latent_size = args.resolution // 8
     model = MMDiT(
         input_size=latent_size,
-        z_dims =  [int(z_dim) for z_dim in args.projector_embed_dims.split(',')],
         encoder_depth=args.encoder_depth,
     ).to(device)
 
@@ -263,9 +259,6 @@ if __name__ == "__main__":
     parser.add_argument("--heun", action=argparse.BooleanOptionalAction, default=True) # only for ode
     parser.add_argument("--guidance-low", type=float, default=0.)
     parser.add_argument("--guidance-high", type=float, default=1.)
-
-    # will be deprecated
-    parser.add_argument("--legacy", action=argparse.BooleanOptionalAction, default=False) # only for ode
 
     args = parser.parse_args()
     main(args)

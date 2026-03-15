@@ -66,25 +66,12 @@ def main(args):
         input_size=latent_size,
         num_classes=args.num_classes,
         use_cfg = True,
-        z_dims = [int(z_dim) for z_dim in args.projector_embed_dims.split(',')],
         encoder_depth=args.encoder_depth,
         **block_kwargs,
     ).to(device)
-    # Auto-download a pre-trained model or load a custom SiT checkpoint from train.py:
+    # load a custom SiT checkpoint from train.py:
     ckpt_path = args.ckpt
-    if ckpt_path is None:
-        args.ckpt = 'SiT-XL-2-256x256.pt'
-        assert args.model == 'SiT-XL/2'
-        assert len(args.projector_embed_dims.split(',')) == 1
-        assert int(args.projector_embed_dims.split(',')[0]) == 768
-        state_dict = download_model('last.pt')
-    else:
-        # state_dict = torch.load(ckpt_path, map_location=f'cuda:{device}')['ema']
-        state_dict = torch.load(ckpt_path, map_location=f'cuda:{device}')
-    if args.legacy:
-        state_dict = load_legacy_checkpoints(
-            state_dict=state_dict, encoder_depth=args.encoder_depth
-            )
+    state_dict = torch.load(ckpt_path, map_location=f'cuda:{device}')
     model.load_state_dict(state_dict['ema'], strict=False)
     model.eval()  # important!
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
@@ -206,15 +193,11 @@ if __name__ == "__main__":
     # sampling related hyperparameters
     parser.add_argument("--mode", type=str, default="ode")
     parser.add_argument("--cfg-scale",  type=float, default=1.5)
-    parser.add_argument("--projector-embed-dims", type=str, default="768,1024")
     parser.add_argument("--path-type", type=str, default="linear", choices=["linear", "cosine"])
     parser.add_argument("--num-steps", type=int, default=50)
     parser.add_argument("--heun", action=argparse.BooleanOptionalAction, default=False) # only for ode
     parser.add_argument("--guidance-low", type=float, default=0.)
     parser.add_argument("--guidance-high", type=float, default=1.)
-
-    # will be deprecated
-    parser.add_argument("--legacy", action=argparse.BooleanOptionalAction, default=False) # only for ode
 
 
     args = parser.parse_args()

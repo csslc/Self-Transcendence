@@ -74,7 +74,7 @@ def main(resolution=256):
     autoencoder = libs.autoencoder.get_model('assets/stable-diffusion/autoencoder_kl.pth')
     autoencoder.to(device)
     from preprocessing.encoders import StabilityVAEEncoder
-    model_url = '/home/notebook/data/group/slc/SiT/sd-vae-ft-ema'
+    model_url = '.../sd-vae-ft-ema'
     vae = StabilityVAEEncoder(vae_name=model_url, batch_size=1)
     clip = libs.clip.FrozenCLIPEmbedder()
     clip.eval()
@@ -90,13 +90,13 @@ def main(resolution=256):
             if len(x.shape) == 3:
                 x = x[None, ...]
             x = torch.tensor(x, device=device)
-            # moments = vae(x, fn='encode_moments').squeeze(0)
-            # moments = moments.detach().cpu().numpy()
-            moments = vae.encode(x).latent_dist
-            mean = moments.mean
-            std = moments.std
-            moments = torch.cat([mean,std], 1).squeeze(0)
+            moments = vae(x, fn='encode_moments').squeeze(0)
             moments = moments.detach().cpu().numpy()
+            # moments = vae.encode(x).latent_dist
+            # mean = moments.mean
+            # std = moments.std
+            # moments = torch.cat([mean,std], 1).squeeze(0)
+            # moments = moments.detach().cpu().numpy()
 
             import io
 

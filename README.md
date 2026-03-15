@@ -68,8 +68,8 @@ If our code helps your research or work, please consider citing our paper.
 The following are BibTeX references:
 
 ```
-@article{sun2026beyond,
-  title={Beyond External Guidance: Unleashing the Semantic Richness Inside Diffusion Transformers for Improved Training},
+@article{sun2026selftrans,
+  title={Self-transcendence: Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?},
   author={Sun, Lingchen and Wu, Rongyuan and Zhang, Zhengqiang and Li, Ruibin and Sun, Yujing and Liu, Shuaizheng and Zhang, Lei},
   journal={arXiv preprint arXiv: 2601.07773},
   year={2026}
@@ -81,7 +81,7 @@ The following are BibTeX references:
 This project is released under the [Apache 2.0 license](LICENSE).
 
 ### Acknowledgement
-This project is based on [REPA](https://github.com/sihyun-yu/REPA). Thanks for the awesome work. 
+This project is based on [REPA](https://github.com/sihyun-yu/REPA) and [U-ViT](https://github.com/baofff/U-ViT). Thanks for the awesome works. 
 
 ### Contact
 If you have any questions, please contact: ling-chen.sun@connect.polyu.hk

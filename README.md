@@ -51,7 +51,7 @@ We find that the most effective guiding features should meet **two criteria**:
 With these considerations, we propose a two-stage training framework.
 
 <div align="center">
-<img src="figs/framework.png" height="260px"/>
+<img src="figs/framework.png" height="250px"/>
 </div>
 (a) Firstly, we use clean VAE features as guidance to help the model distinguish useful information from noise in shallow layers. 
 
@@ -79,22 +79,22 @@ pip install -r requirements.txt
 Download the Self-Transcendence model from [`obox(pwd: SelfTrans315)`](https://sbox.myoas.com/l/B1b213930e1088174).
 
 #### Step 3: Running testing command 
-```
-torchrun --nnodes=1 --nproc_per_node=8 --master-port=29510 generate.py \
-  --model SiT-XL/2 \
-  --ckpt pretrained_models/self-trans/sit_xl/2000000.pt \
-  --sample-dir test_results/self-trans/sit-xl \
-  --num-fid-samples 50000 \
-  --path-type=linear \
-  --encoder-depth=8 \
-  --projector-embed-dims=768 \
-  --per-proc-batch-size=64 \
-  --mode=sde \
-  --num-steps=250 \
-  --cfg-scale=1.9 \
-  --resolution=256 \
-  --guidance-high=0.65
-```
+  ```
+  torchrun --nnodes=1 --nproc_per_node=8 --master-port=29510 generate.py \
+    --model SiT-XL/2 \
+    --ckpt pretrained_models/self-trans/sit_xl/2000000.pt \
+    --sample-dir test_results/self-trans/sit-xl \
+    --num-fid-samples 50000 \
+    --path-type=linear \
+    --encoder-depth=8 \
+    --projector-embed-dims=768 \
+    --per-proc-batch-size=64 \
+    --mode=sde \
+    --num-steps=250 \
+    --cfg-scale=1.9 \
+    --resolution=256 \
+    --guidance-high=0.65
+  ```
 
 ## 🚋 Train 
 #### Step1: Prepare training data
@@ -117,13 +117,13 @@ We provide experiments for ImageNet (C2I) and MSCoCo (T2I). You can place the da
     --output-dir="exps/vaeloss" \
     --t-range 0.4 0.7 \
     --resolution 256 \
-    --exp-name="sit-b-256" \
+    --exp-name="sit-b" \
     --data-dir=".../data"
     ```
 
 2. Train the model with the self-guided representation:
-  ```shell
-    accelerate launch train_vaeloss.py \
+    ```shell
+    accelerate launch train_selftrans.py \
     --report-to="wandb" \
     --allow-tf32 \
     --mixed-precision="fp16" \
@@ -132,12 +132,14 @@ We provide experiments for ImageNet (C2I) and MSCoCo (T2I). You can place the da
     --prediction="v" \
     --weighting="uniform" \
     --model="SiT-B/2" \
-    --proj-coeff=0.5 \
-    --encoder-depth=2 \
-    --output-dir="exps/vaeloss" \
+    --stu-depth=6 \
+    --tea-depth=8 \
+    --cfg_guide=30.0 \
+    --output-dir="exps/self_trans" \
+    --ckpt_guided_model="exps/vaeloss/sit-b-256/0200000.pt" \
     --t-range 0.4 0.7 \
-    --resolution 256 \
-    --exp-name="sit-b-256" \
+    --batch-size=256 \
+    --exp-name="sit-b" \
     --data-dir=".../data"
     ```
 

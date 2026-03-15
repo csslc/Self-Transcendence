@@ -44,11 +44,12 @@ guidance indispensable for accelerating diffusion transformer training?** and in
 ## 🌟 Overview framework
 We find that the most effective guiding features should meet **two criteria**:  
 
-(1) *they should have a **clean structure**, in the sense that they can effectively help shallow blocks distinguish noise from signal*.
+(1) *they should be **structurally clean** to help shallow blocks separate noise from signal*.
 
-(2) *they should be **semantically discriminative**, making it easier for shallow layers to learn effective representations*.
+(2) *they should be **semantically discriminative** to help shallow layers learn effective representation*.
 
-With these considerations, we propose a two-stage training framework.
+
+With these considerations, we propose a two-stage framework.
 
 <div align="center">
 <img src="figs/framework.png" height="250px"/>

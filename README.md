@@ -3,6 +3,7 @@
 
 <h2>Self-transcendence: <br>  Is External Feature Guidance Indispensable for Accelerating Diffusion Transformer Training?</h2>
 
+🚩 Accepted by ECCV2026
 
 <a href='https://arxiv.org/abs/2601.07773'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a> <img src='https://img.shields.io/badge/Project-Page-Blue'></a>
 <!-- <a href='https://yjsunnn.github.io/Self-Transcendence-project/'> --> 

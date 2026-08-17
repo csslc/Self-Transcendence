@@ -80,7 +80,7 @@ pip install -r requirements.txt
 #### Step 1: Download the pretrained models
 Download the Self-Transcendence model from [`obox`](https://sbox.myoas.com/l/B1b213930e1088174)(pwd: SelfTrans315).
 
-#### Step 3: Running testing command 
+#### Step 2: Running testing command 
   ```
   torchrun --nnodes=1 --nproc_per_node=8 --master-port=29510 generate.py \
     --model SiT-XL/2 \

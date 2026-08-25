@@ -78,7 +78,7 @@ pip install -r requirements.txt
 
 ## 🍭 Quick Inference
 #### Step 1: Download the pretrained models
-Download the Self-Transcendence model from [`obox`](https://sbox.myoas.com/l/B1b213930e1088174)(pwd: SelfTrans315).
+Download the Self-Transcendence model from [`obox`](https://sbox.myoas.com/l/B1b213930e1088174)(pwd: SelfTrans315) or [BaiduDesk](https://pan.baidu.com/s/1pifDn7Yi76-kRJxOQzD1eA?pwd=0825)(pwd: 0825).
 
 #### Step 2: Running testing command 
   ```
